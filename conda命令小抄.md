@@ -32,5 +32,13 @@ conda remove -n [name] [package]
 conda list --revisions
 
 conda install --revision REV_NUM
+
+
+
+# 导出当前环境中使用conda安装的第三方库
+ conda env export > environment.yml       
+ 
+# 按照导出的文件重现一个虚拟环境
+ conda env create -f environment.yml
 ```
 
