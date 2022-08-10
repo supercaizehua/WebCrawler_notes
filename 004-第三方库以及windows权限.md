@@ -18,7 +18,7 @@
 
 
 
-2. windows权限问题解决方法
+2. windows权限问题两种解决方法
 
     1. 使用管理员身份开启terminal
 
