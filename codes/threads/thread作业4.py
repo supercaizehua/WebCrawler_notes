@@ -12,7 +12,7 @@ def task_(s):
     t = threading.Thread(target=longtime, args=(s,))
     print('单个子线程开始')
     t.start()
-    return True
+    return t
 
 
 with ThreadPoolExecutor(max_workers=3) as executor:
@@ -21,9 +21,10 @@ with ThreadPoolExecutor(max_workers=3) as executor:
         task = executor.submit(task_, i)
         all_task.append(task)
 
-    wait(all_task, return_when=ALL_COMPLETED)
+    # wait(all_task, return_when=ALL_COMPLETED)
     for future in as_completed(all_task):
         res = future.result()
-        print(res)
+        res.join()
+        print('join')
 
     print('finish')
